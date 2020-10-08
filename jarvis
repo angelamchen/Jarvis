@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 from PyPDF2 import PdfFileWriter, PdfFileReader
+from os.path import basename
+import webbrowser
 import os
 import sys
 import shutil
@@ -47,6 +49,15 @@ def pdf(arguments):
         raise Exception("Invalid command. Possible commands: jarvis pdf split")
 
 
+def github(arguments):
+    action = arguments[0]
+
+    if action == "open":
+        print("In progress")
+        parent = basename(os.getcwd())
+        webbrowser.open("http://github.com/angelamchen/{}".format(parent))
+
+
 if __name__ == "__main__":
     num_args = len(sys.argv)
 
@@ -55,5 +66,7 @@ if __name__ == "__main__":
 
     if command == "pdf":
         pdf(sys.argv[2:])
+    elif command == "git":
+        github(sys.argv[2:])
     else:
         print("Invalid command. Please try again")

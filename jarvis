@@ -1,10 +1,9 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python
 
 from PyPDF2 import PdfFileWriter, PdfFileReader
 import os
 import sys
-
-# TODO: undoing a creation
+import shutil
 
 
 def seperate_pdf(file):
@@ -14,8 +13,13 @@ def seperate_pdf(file):
     parent = os.getcwd()
     directory = "pdf-output"
     path = os.path.join(parent, directory)
+
+    if os.path.exists(path):
+        print("Directory '{}' already exists, deleting..".format(directory))
+        shutil.rmtree(path)
+
     os.mkdir(path)
-    print("Directory '{}' created".format(path))
+    print("Directory '{}' created".format(directory))
 
     filename = file[:-4]
 

@@ -5,3 +5,6 @@ Current tasks Jarvis can perform:
 
 `jarvis pdf split [filename]`
 Splits a pdf into individual pages. Useful for submitting school assignments
+
+`jarvis git open`
+Opens the GitHub repository of the current folder, if it exists

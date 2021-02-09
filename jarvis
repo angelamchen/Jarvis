@@ -55,7 +55,7 @@ def github(arguments):
     if action == "open":
         print("In progress")
         parent = basename(os.getcwd())
-        webbrowser.open("http://github.com/angelamchen/{}".format(parent))
+        webbrowser.open("http://github.com/Angela-UW/{}".format(parent))
 
 
 if __name__ == "__main__":
